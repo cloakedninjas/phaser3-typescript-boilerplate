@@ -1,14 +1,15 @@
 import {Game} from './game';
 import {Game as GameScene} from './scenes/game';
+import {Preload} from "./scenes/preload";
 
 const config: GameConfig = {
     title: 'Demo Game',
     width: 800,
     height: 600,
-    scene: [GameScene],
+    scene: [Preload, GameScene],
     backgroundColor: '#333'
 };
 
 window.addEventListener('load', () => {
-    new Game(config);
+    window['game'] = new Game(config);
 });

@@ -10,4 +10,8 @@ export class Game extends Scene {
   init() {
     console.log('init here');
   }
+
+  preload() {
+    console.log('preload...');
+  }
 }

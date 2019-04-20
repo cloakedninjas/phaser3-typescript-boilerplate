@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5"
+    "target": "es5",
+    "sourceMap": true,
   },
   "files": [
     "node_modules/phaser3-docs/typescript/phaser.d.ts"

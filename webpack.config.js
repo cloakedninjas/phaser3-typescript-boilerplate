@@ -31,4 +31,5 @@ module.exports = {
     contentBase: DIST_DIR,
     compress: true,
   },
+  devtool: 'sourcemap',
 };
