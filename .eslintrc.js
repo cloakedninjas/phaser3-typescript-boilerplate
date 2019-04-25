@@ -9,6 +9,7 @@ module.exports = {
     'Atomics': 'readonly',
     'SharedArrayBuffer': 'readonly',
   },
+  parser:  '@typescript-eslint/parser',
   'parserOptions': {
     'ecmaVersion': 2018,
     'sourceType': 'module',

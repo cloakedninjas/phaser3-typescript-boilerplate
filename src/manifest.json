@@ -1,0 +1,11 @@
+{
+    "image": {
+        "test-file": {
+            "file": "test-file1.png",
+            "size": 12
+        }
+    },
+
+    "audio": {},
+    "json": {}
+}

@@ -2,6 +2,8 @@
   "compilerOptions": {
     "target": "es5",
     "sourceMap": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
   },
   "files": [
     "node_modules/phaser3-docs/typescript/phaser.d.ts"
