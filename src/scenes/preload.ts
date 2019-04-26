@@ -1,11 +1,28 @@
 import {Scene} from 'phaser';
 import * as manifest from '../../manifest.json';
 
+const MB = 1024 * 1024;
+
 export class Preload extends Scene {
+  totalDownloadSize: number;
+  totalDownloadSizeFormatted: string;
+  downloadedSize: number;
+
   constructor() {
     super({
       key: 'PreloadScene',
     });
+
+    this.totalDownloadSize = 0;
+    this.downloadedSize = 0;
+
+    Object.keys(manifest).forEach((fileType: string) => {
+      Object.keys(manifest[fileType]).forEach((key) => {
+        this.totalDownloadSize += manifest[fileType][key].size;
+      });
+    });
+
+    this.totalDownloadSizeFormatted = Math.round(this.totalDownloadSize / MB).toString();
   }
 
   preload() {
@@ -13,9 +30,14 @@ export class Preload extends Scene {
     const progressBox = this.add.graphics();
     const width = this.cameras.main.width;
     const height = this.cameras.main.height;
+    const textStyle = {
+      font: '18px monospace',
+      fill: '#ffffff',
+    };
+    const x = width / 2;
 
     const loadingText = this.make.text({
-      x: width / 2,
+      x: x,
       y: height / 2 - 50,
       text: 'Loading...',
       style: {
@@ -26,40 +48,53 @@ export class Preload extends Scene {
     loadingText.setOrigin(0.5, 0.5);
 
     const percentText = this.make.text({
-      x: width / 2,
+      x: x,
       y: height / 2 - 5,
       text: '0%',
-      style: {
-        font: '18px monospace',
-        fill: '#ffffff',
-      },
+      style: textStyle,
     });
     percentText.setOrigin(0.5, 0.5);
 
     const assetText = this.make.text({
-      x: width / 2,
+      x: x,
       y: height / 2 + 50,
       text: '',
-      style: {
-        font: '18px monospace',
-        fill: '#ffffff',
-      },
+      style: textStyle,
     });
 
     assetText.setOrigin(0.5, 0.5);
 
+    const totalText = this.make.text({
+      x: x,
+      y: height / 2 + 100,
+      text: '',
+      style: textStyle,
+    });
+
+    totalText.setOrigin(0.5, 0.5);
+
     progressBox.fillStyle(0x222222, 0.8);
     progressBox.fillRect(240, 270, 320, 50);
 
-    this.load.on('progress', function(value) {
-      percentText.setText(parseInt(value) * 100 + '%');
+    this.load.on('fileprogress', (file) => {
+      const previousLoad = file.previousLoad || 0;
+
+      this.downloadedSize += file.bytesLoaded - previousLoad;
+
+      const value = (this.downloadedSize / this.totalDownloadSize);
+
       progressBar.clear();
       progressBar.fillStyle(0xffffff, 1);
       progressBar.fillRect(250, 280, 300 * value, 30);
-    });
 
-    this.load.on('fileprogress', function(file) {
+
       assetText.setText('Loading asset: ' + file.key);
+      percentText.setText((value * 100).toFixed(2) + '%');
+
+      const downloadInfo = (this.downloadedSize / MB).toFixed(2) + 'MB / ' + this.totalDownloadSizeFormatted + 'MB';
+      totalText.setText(downloadInfo);
+
+      file.previousLoad = file.bytesLoaded;
     });
 
     this.load.on('complete', function() {
