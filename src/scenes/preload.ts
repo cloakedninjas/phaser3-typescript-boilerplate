@@ -1,6 +1,5 @@
 import {Scene} from 'phaser';
-// const manifest = require('./manifest.json');
-import * as manifest from '../manifest.json';
+import * as manifest from '../../manifest.json';
 
 export class Preload extends Scene {
   constructor() {
@@ -73,14 +72,12 @@ export class Preload extends Scene {
 
     // use manifest.json to load all assets
     Object.keys(manifest).forEach((fileType: string) => {
-      for (const asset in manifest[fileType]) {
-        if (manifest.hasOwnProperty(asset)) {
-          const assetVars = manifest[fileType][asset];
-          const url = 'assets/' + fileType + '/' + assetVars['file'];
+      Object.keys(manifest[fileType]).forEach((key) => {
+        const assetVars = manifest[fileType][key];
+        const url = 'assets/' + fileType + '/' + assetVars['file'];
 
-          this.load[fileType](asset, url);
-        }
-      }
+        this.load[fileType](key, url);
+      });
     });
   }
 }

@@ -28,7 +28,7 @@ module.exports = {
     ]),
   ],
   devServer: {
-    contentBase: DIST_DIR,
+    contentBase: path.resolve(__dirname, 'assets'),
     compress: true,
   },
   devtool: 'sourcemap',
