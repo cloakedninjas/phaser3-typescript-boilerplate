@@ -5,8 +5,11 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
   },
-  "files": [
-    "node_modules/phaser3-docs/typescript/phaser.d.ts"
+  "typeRoots": [
+    "./node_modules/phaser/types"
+  ],
+  "types": [
+    "Phaser"
   ],
   "include": [
     "src/*.ts"
