@@ -23,9 +23,11 @@ module.exports = {
     path: DIST_DIR,
   },
   plugins: [
-    new CopyPlugin([
-      {from: 'src/index.html', to: DIST_DIR},
-      {from: 'assets', to: DIST_DIR + '/assets'},
-    ]),
+    new CopyPlugin({
+      patterns: [
+        {from: 'src/index.html', to: DIST_DIR},
+        {from: 'assets', to: DIST_DIR + '/assets'},
+      ],
+    }),
   ],
 };
