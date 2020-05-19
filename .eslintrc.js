@@ -2,20 +2,17 @@ module.exports = {
   'env': {
     'browser': true,
     'es6': true,
-    'node': true,
+    'node': true
   },
-  'extends': 'google',
-  'globals': {
-    'Atomics': 'readonly',
-    'SharedArrayBuffer': 'readonly',
-  },
-  parser: '@typescript-eslint/parser',
+  'extends': 'eslint:recommended',
+  'parser': '@typescript-eslint/parser',
   'parserOptions': {
     'ecmaVersion': 2018,
-    'sourceType': 'module',
+    'sourceType': 'module'
   },
-  'rules': {
-    'require-jsdoc': 0,
-    'max-len': 0,
+  'ignorePatterns': ['dist'],
+  rules: {
+    'object-curly-spacing': ['error', 'always'],
+    'comma-dangle': ['error', 'never']
   }
 };

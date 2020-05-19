@@ -1,6 +1,7 @@
-import {Game} from './game';
-import {Game as GameScene} from './scenes/game';
-import {Preload} from './scenes/preload';
+import Phaser from 'phaser';
+import { Game } from './game';
+import { Game as GameScene } from './scenes/game';
+import { Preload } from './scenes/preload';
 
 const config: Phaser.Types.Core.GameConfig = {
   title: 'Demo Game',
@@ -15,13 +16,13 @@ const config: Phaser.Types.Core.GameConfig = {
     height: 600,
     min: {
       width: 800,
-      height: 600,
+      height: 600
     },
     max: {
       width: 1600,
-      height: 1200,
-    },
-  },
+      height: 1200
+    }
+  }
 };
 
 window.addEventListener('load', () => {

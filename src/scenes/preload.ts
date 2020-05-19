@@ -1,4 +1,4 @@
-import {Scene} from 'phaser';
+import { Scene } from 'phaser';
 import * as manifest from '../../manifest.json';
 
 const MB = 1024 * 1024;
@@ -10,7 +10,7 @@ export class Preload extends Scene {
 
   constructor() {
     super({
-      key: 'PreloadScene',
+      key: 'PreloadScene'
     });
 
     this.totalDownloadSize = 0;
@@ -32,7 +32,7 @@ export class Preload extends Scene {
     const height = this.cameras.main.height;
     const textStyle = {
       font: '18px monospace',
-      fill: '#ffffff',
+      fill: '#ffffff'
     };
     const x = width / 2;
     const padding = 10;
@@ -43,8 +43,8 @@ export class Preload extends Scene {
       text: 'Loading...',
       style: {
         font: '20px monospace',
-        fill: '#ffffff',
-      },
+        fill: '#ffffff'
+      }
     });
     loadingText.setOrigin(0.5, 0.5);
 
@@ -52,7 +52,7 @@ export class Preload extends Scene {
       x: x,
       y: height / 2 - 5,
       text: '0%',
-      style: textStyle,
+      style: textStyle
     });
     percentText.setOrigin(0.5, 0.5);
 
@@ -60,7 +60,7 @@ export class Preload extends Scene {
       x: x,
       y: height / 2 + 50,
       text: '',
-      style: textStyle,
+      style: textStyle
     });
 
     assetText.setOrigin(0.5, 0.5);
@@ -69,7 +69,7 @@ export class Preload extends Scene {
       x: x,
       y: height / 2 + 100,
       text: '',
-      style: textStyle,
+      style: textStyle
     });
 
     totalText.setOrigin(0.5, 0.5);
@@ -97,7 +97,7 @@ export class Preload extends Scene {
       file.previousLoad = file.bytesLoaded;
     });
 
-    this.load.on('complete', function() {
+    this.load.on('complete', function () {
       progressBar.destroy();
       progressBox.destroy();
       loadingText.destroy();

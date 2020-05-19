@@ -1,5 +1,4 @@
 const path = require('path');
-
 const DIST_DIR = path.resolve(__dirname, 'dist');
 
 module.exports = {
@@ -10,19 +9,19 @@ module.exports = {
       {
         test: /\.ts?$/,
         use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-    ],
+        exclude: /node_modules/
+      }
+    ]
   },
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts', '.js']
   },
   output: {
     filename: 'app.js',
-    path: DIST_DIR,
+    path: DIST_DIR
   },
   devServer: {
-    host: '0.0.0.0',
+    host: '0.0.0.0'
   },
-  devtool: 'sourcemap',
+  devtool: 'sourcemap'
 };
