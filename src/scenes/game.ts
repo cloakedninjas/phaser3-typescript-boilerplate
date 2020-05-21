@@ -1,17 +1,17 @@
-import { Scene } from 'phaser';
+import Phaser from 'phaser';
 
-export class Game extends Scene {
+export class Game extends Phaser.Scene {
   constructor() {
     super({
       key: 'GameScene'
     });
   }
 
-  init() {
+  init(): void {
     console.log('init here');
   }
 
-  preload() {
+  preload(): void {
     console.log('preload...');
   }
 }

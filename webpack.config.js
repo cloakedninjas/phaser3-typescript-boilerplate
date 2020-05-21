@@ -14,7 +14,11 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['.ts', '.js'],
+    alias: {
+      phaser$: path.resolve(__dirname, 'node_modules/phaser/src/phaser-core.js')
+    }
+
   },
   output: {
     filename: 'app.js',

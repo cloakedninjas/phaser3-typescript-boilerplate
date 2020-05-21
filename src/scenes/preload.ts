@@ -25,7 +25,7 @@ export class Preload extends Scene {
     this.totalDownloadSizeFormatted = Math.round(this.totalDownloadSize / MB).toFixed(2);
   }
 
-  preload() {
+  preload(): void {
     const progressBar = this.add.graphics();
     const progressBox = this.add.graphics();
     const width = this.cameras.main.width;
@@ -120,7 +120,7 @@ export class Preload extends Scene {
     });
   }
 
-  create() {
+  create(): void {
     this.scene.start('GameScene');
   }
 }
