@@ -1,30 +1,26 @@
-import Phaser from 'phaser';
-import { Game } from './game';
+import 'phaser';
+import Boot from './scenes/boot';
+import Preload from './scenes/preload';
 import { Game as GameScene } from './scenes/game';
-import { Preload } from './scenes/preload';
 
 const config: Phaser.Types.Core.GameConfig = {
   title: 'Demo Game',
 
-  scene: [Preload, GameScene],
+  scene: [Boot, Preload, GameScene],
   backgroundColor: '#333',
-  resolution: window.devicePixelRatio,
   scale: {
-    mode: Phaser.Scale.ENVELOP,
+    mode: Phaser.Scale.FIT,
     parent: 'game-container',
+    autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
     width: 800,
     height: 600,
-    min: {
+    max: {
       width: 800,
       height: 600
-    },
-    max: {
-      width: 1600,
-      height: 1200
     }
   }
 };
 
 window.addEventListener('load', () => {
-  window['game'] = new Game(config);
+  window['game'] = new Phaser.Game(config);
 });
