@@ -1,17 +1,14 @@
-import Phaser from 'phaser';
+import { Scene } from 'phaser';
 
-export class Game extends Phaser.Scene {
+export class Game extends Scene {
   constructor() {
     super({
       key: 'GameScene'
     });
   }
 
-  init(): void {
-    console.log('init here');
-  }
-
-  preload(): void {
-    console.log('preload...');
+  create(): void {
+    const image = this.add.image(this.cameras.main.centerX, this.cameras.main.centerY, 'phaser_logo');
+    image.setOrigin(0.5);
   }
 }

@@ -1,33 +1,24 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
+const baseConfig = require('./webpack.config');
 
 const DIST_DIR = path.resolve(__dirname, 'dist');
 
-module.exports = {
+const config = {
+  ...baseConfig,
   mode: 'production',
-  entry: './src/app.ts',
-  module: {
-    rules: [
-      {
-        test: /\.ts?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
-      }
-    ]
-  },
-  resolve: {
-    extensions: ['.ts', '.js']
-  },
-  output: {
-    filename: 'app.js',
-    path: DIST_DIR
-  },
+
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: 'src/index.html', to: DIST_DIR },
+        { from: 'index.html', to: DIST_DIR },
         { from: 'assets', to: DIST_DIR + '/assets' }
       ]
     })
   ]
 };
+
+delete config.devServer;
+delete config.devtool;
+
+module.exports = config;
