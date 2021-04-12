@@ -14,11 +14,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.ts', '.js'],
-    alias: {
-      phaser$: path.resolve(__dirname, 'node_modules/phaser/src/phaser-core.js')
-    }
-
+    extensions: ['.ts', '.js']
   },
   output: {
     filename: 'app.js',
@@ -27,5 +23,5 @@ module.exports = {
   devServer: {
     host: '0.0.0.0'
   },
-  devtool: 'sourcemap'
+  devtool: 'eval-source-map'
 };

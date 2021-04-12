@@ -1,3 +1,8 @@
+/**
+ * @author       cloakedninjas (https://github.com/cloakedninjas)
+ * @license      {@link https://opensource.org/licenses/MIT|MIT License}
+ */
+
 import { Scene } from 'phaser';
 import ProgressBar from '../lib/progress-bar';
 import * as manifest from '../../assets/manifest.json';
