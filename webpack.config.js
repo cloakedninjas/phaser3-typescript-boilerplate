@@ -21,7 +21,7 @@ module.exports = {
     path: DIST_DIR
   },
   devServer: {
-    host: '0.0.0.0'
+    static: '.'
   },
   devtool: 'eval-source-map'
 };

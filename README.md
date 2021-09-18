@@ -14,7 +14,7 @@ Contains 3 scenes:
 
 Build files, run the webpack dev-server - available at [localhost:8080](http://localhost:8080)
 
-- `npm build`
+- `npm run build`
 
 Build the production version and output files to `dist`
 
