@@ -1,5 +1,11 @@
 # Phaser 3 Typescript Boilerplate
-Contains 3 scenes:
+
+Provides the following, to enable faster development of new Phaser projects:
+- Phaser 3.70
+- Typescript 5
+- Webpack 5
+
+Included are 3 scenes:
 - **Boot** (for minimal file loading for files needed in Preload)
 - **Preload** contains a bespoke driven by the `manifest.json`
 - **Game** primary game scene
